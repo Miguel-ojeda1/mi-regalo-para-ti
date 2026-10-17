@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#160b2b">
-<title>Para Mi negra 💜</title>
+<title id="pageTitle">Para Mi negra 💜</title>
 <style>
 :root{--bg:#10091d;--panel:#211337;--panel2:#2b1942;--purple:#b99aff;--pink:#f2c5ff;--text:#fff8ff;--muted:#d2c2e8;--gold:#f3d79a}
 *{box-sizing:border-box}
@@ -48,74 +48,122 @@ footer{text-align:center;color:#bba9d2;font:12px Arial,sans-serif;padding:28px 8
   <header class="hero">
     <div class="moon">☾ ✦</div>
     <div class="eyebrow">un pequeño universo hecho para ti</div>
-    <h1>Para Mi negra</h1>
-    <p>Si pudiera regalarte un lugar donde siempre te sintieras querida, sería este rinconcito. Y como no puedo meter el universo en una cajita… hice una página para ti. 💜</p>
+    <h1 id="mainTitle">Para Mi negra</h1>
+    <p id="introText"></p>
     <button onclick="document.getElementById('carta').scrollIntoView({behavior:'smooth'})">Entra, es para ti ✧</button>
   </header>
 
   <section class="card center">
     <div class="ornament">✦ ───── ♡ ───── ✦</div>
-    <h2>Nuestro pequeño comienzo</h2>
-    <p>Desde aquel día, el <strong>7 de agosto de 2026</strong>, empezó a escribirse una parte bonita de mi historia.</p>
+    <h2 id="counterTitle"></h2>
+    <p id="counterIntro"></p>
     <div class="counter" aria-live="polite">
       <div><strong id="days">—</strong><span>días</span></div>
       <div><strong id="hours">—</strong><span>horas</span></div>
       <div><strong id="minutes">—</strong><span>minutos</span></div>
     </div>
-    <p class="small">Y todavía quedan muchos momentos bonitos por vivir. 💫</p>
+    <p class="small" id="counterFooter"></p>
   </section>
 
   <section class="card" id="carta">
     <div class="ornament">♡</div>
-    <h2>Una carta para ti</h2>
-    <div class="letter">
-      <p>Mi negra,</p>
-      <p>No sé si una página pueda demostrar todo el cariño que te tengo, pero quería hacer algo que fuera tuyo, algo que pudieras abrir cualquier día y que te recordara lo importante que eres para mí.</p>
-      <p>Me gusta saber que existes, que entre tantas personas nuestros caminos se cruzaron y que puedo compartir contigo pedacitos de mis días. A veces quisiera encontrar las palabras perfectas para explicarte lo que me haces sentir, pero creo que ni las más bonitas alcanzarían.</p>
-      <p>Quiero que sonrías mucho, que nunca dudes de lo valiosa que eres y que, incluso en esos días en que todo parezca pesado, recuerdes que mereces cariño del bonito: del que escucha, respeta, acompaña y te deja ser tú misma.</p>
-      <p>No hice esto porque sea una fecha especial. Lo hice porque tú eres especial para mí, y me nació regalarte un detalle que llevara un poquito de lo que siento.</p>
-      <p>Gracias por ser tú, Mi negra. Ojalá esta página te saque esa sonrisita tuya que me encanta imaginar. Y si algún día vuelves a abrirla, quiero que encuentres aquí un recordatorio: eres alguien muy querida. 💜</p>
-      <p>Con muchísimo cariño,<br><strong>alguien que se alegra de tenerte en su vida. ♡</strong></p>
-    </div>
+    <h2 id="letterTitle"></h2>
+    <div class="letter" id="letterText"></div>
   </section>
 
   <section class="card center">
     <div class="song-mark">🎶</div>
-    <h2>Mi Santa</h2>
-    <p>Hay canciones que parecen guardar sentimientos que uno no sabe explicar. Elegí <em>“Mi Santa”</em>, de Romeo Santos, porque quería que esta parte de mi regalo tuviera un sonido especial y que, cuando la escuches, te acuerdes un poquito de mí.</p>
-    <p class="small">Puedes poner la canción desde tu plataforma de música favorita. Esta página no reproduce audio automáticamente.</p>
+    <h2 id="songTitle"></h2>
+    <p id="songText"></p>
+    <p class="small" id="songNote"></p>
   </section>
 
   <section class="card center">
     <div class="ornament">✧ ✧ ✧</div>
-    <h2>Una pequeña sorpresa</h2>
-    <p>Hay una puertita escondida en este rincón. Si conoces la palabra, puedes abrirla. 🤫</p>
+    <h2 id="secretTitle"></h2>
+    <p id="secretIntro"></p>
     <input id="secretWord" type="password" placeholder="Escribe la palabra secreta" autocomplete="off" aria-label="Palabra secreta">
     <br><button onclick="unlockSecret()">Abrir mi sorpresa 💌</button>
     <div id="secretMessage" class="hidden-content">
-      <h2>Un secreto para ti ♡</h2>
-      <p>Mi negra, si llegaste hasta aquí, quiero que te quedes con esto: no tienes que hacer nada extraordinario para merecer cariño. Me alegra conocerte tal como eres, con tus ocurrencias, tus días buenos y los no tan buenos.</p>
-      <p>Y si pudiera pedirle un deseo a esta noche, sería que la vida te regale motivos para sonreír y personas que te cuiden con la misma ternura que tú mereces. Ojalá este pequeño detalle sea uno de esos motivos. 💜</p>
+      <div id="secretText"></div>
     </div>
     <p id="wrongWord" class="small" role="status"></p>
   </section>
 
   <section class="card center">
-    <h2>Antes de que te vayas…</h2>
-    <p>Respira un poquito, sonríe si te nace y recuerda que alguien se tomó el tiempo de hacer todo esto pensando en ti.</p>
-    <button onclick="showFinal()">Tengo una última cosita ✨</button>
+    <h2 id="finalTitle"></h2>
+    <p id="finalIntro"></p>
+    <button id="finalButton" onclick="showFinal()"></button>
     <div id="finalMessage" class="hidden-content">
-      <p>Si pudiera ponerle un nombre a este regalo, sería “un pedacito de mi cariño para ti”. No es perfecto, pero está hecho con intención bonita. Espero que hoy, mañana o cualquier día que vuelvas, te haga sentir especial.</p>
-      <p><strong>Te mando un abrazo enorme, Mi negra. 💜🌙</strong></p>
+      <div id="finalText"></div>
     </div>
   </section>
 
   <footer>
-    Hecho con cariño, especialmente para Mi negra<br>
+    <span id="footerText"></span><br>
     <span>☾ ✦ ♡ ✦ ☽</span>
   </footer>
 </main>
 <script>
+/* =========================================================
+   💜 PERSONALIZA TUS PALABRAS AQUÍ
+   Cambia solo el texto entre comillas. Conserva las comas.
+   Para escribir varias líneas de carta, separa los párrafos
+   con <p>...</p> como en el ejemplo de abajo.
+   ========================================================= */
+const PERSONALIZACION = {
+  apodo: "Mi negra",
+  fechaConocieron: "7 de agosto de 2026",
+  fechaInicio: [2026, 7, 7], // año, mes (enero=0), día
+  palabraSecreta: "lolo",
+  tituloPestana: "Para vos",
+  tituloPrincipal: "Te amo negra",
+  introduccion: "Hola negra, te hice este lugar desde 0 para vos, quiero que entres acá cada vez que quieras recordar cuánto te quiero y te amo, si algún día tenemos nuestras diferencias, podes entrar acá y recordar que siempre quiero lo mejor para vos y que por más que no soy perfecto, quiero mejorar cada día para vos.",
+  tituloContador: "Los dias desde que soy mas feliz",
+  textoContador: 'Desde aquel día, el <strong>7 de agosto de 2026</strong>, el mundo cambio para mi, mi vida mejoro mucho, y mis noches pasaron a ser la mejor etapa del dia',
+  pieContador: "Y aun nos queda mucho tiempo, quiero que este contador siga avanzando hasta el final de mi vida",
+  tituloCarta: "Para la mujer mas hermosa",
+  carta: `<pCuantas cosas para decirte, creo que ya te tengo cansada de decirte lo hermosa que sos y cuánto te amo, pero me es imposible no abrir mi corazón con vos, contarte mi vida, soñar una vida contigo, te diré lo que siento por vos cuanto haga falta, porque no me cuesta nada y me gusta hacerlo, muchas veces soñaba con una mujer perfecta, y si te digo la verdad, mis sueños se quedaron cortos frente a lo que sos, porque vos sobrepasas cada espectativa, eres más de lo que pude haber soñado, y espero estar para vos cada día de mi vida, desde que te conozco, hasta el último. Eres tan especial para mi, te puedo dar regalos como este y muchos, y ni siquiera alcanzo a decirte todo lo que verdaderamente siento, porque mis palabras no bastan, quiero demostrarte cada dia esto que siento, tu persona está guardada en mi corazón, y nunca va a salir de ahí, porque te amo, hoy y siempre, te amo más que ayer, y mucho menos que mañana negra, eres hermosa y lo sabes, te amo.</strong></p>`,
+  tituloCancion: "Mi Santa",
+  textoCancion: 'Hay canciones especiaes, pero para mi esta canción representa mucho mas, me hace acordame de vos cada vez que la escucho, me hace recordar la persona que me hizo escuchala una vez, y que ahora es el amor de mi vida,<em>“Mi Santa” que te puedo decir, es una de mis canciones favoritas, no solo por la canción, si no por la persona que recuerdo al escuchala, eres mi santa y siempre te voy a amar negra, te amo.</em>,',
+  notaCancion: "Puedes poner la canción desde tu plataforma de música favorita. Esta página no reproduce audio automáticamente.",
+  tituloSorpresa: "Un regalo para vos",
+  introSorpresa: "Hay mas palabras dentro de este regalo, solo podes abrirlo si sabes la palabra"
+    Pista: "Es alguien muy especial para vos, y siempre te va a amar por mas que llegue otra persona (o gato)"
+  textoSorpresa: `<h2>Mi futuro ♡</h2>
+<p>Negra, mi futuro puede deparar muchas cosas, siempre pienso en ello, pero no importa que es lo que piense, siempre hay un patrón que se repite, y ese patrón sos vos, siempre estas a mi lado en mi futuro, sueño con hacer una vida junto a ti, y quien sabe que nos depara la vida, pero yo te voy a amar cada dia de ella, mereces esto y mucho mas, nunca te conformes con nada menos, porque eres muy perfecta para mi.</p>`,
+  tituloFinal: "Antes de que te vayas…",
+  introFinal: "Respira un poco, sonríe si te nace y manten presente que me tome el tiempo de hacer todo esto pensando en ti.",
+  botonFinal: "Tengo unas últimas palabras para vos",
+  textoFinal: `<p>Si pudiera ponerle un nombre a este regalo, sería “un pedacito de mi cariño para ti”. No es perfecto, pero está hecho con intención bonita. Espero que hoy, mañana o cualquier día que vuelvas, te haga sentir especial.</p>
+<p><strong>Te mando un abrazo enorme, y también un beso, espero verte pronto y mirarte a la cara, decirte con todas las ganas que tengo, "Te amo negra". 💜🌙</strong></p>`,
+  piePagina: "Hecho con mi amor, especialmente para vos"
+};
+
+function aplicarPersonalizacion() {
+  const t = PERSONALIZACION;
+  document.title = t.tituloPestana;
+  document.getElementById('mainTitle').textContent = t.tituloPrincipal;
+  document.getElementById('introText').textContent = t.introduccion;
+  document.getElementById('counterTitle').textContent = t.tituloContador;
+  document.getElementById('counterIntro').innerHTML = t.textoContador;
+  document.getElementById('counterFooter').textContent = t.pieContador;
+  document.getElementById('letterTitle').textContent = t.tituloCarta;
+  document.getElementById('letterText').innerHTML = t.carta;
+  document.getElementById('songTitle').textContent = t.tituloCancion;
+  document.getElementById('songText').innerHTML = t.textoCancion;
+  document.getElementById('songNote').textContent = t.notaCancion;
+  document.getElementById('secretTitle').textContent = t.tituloSorpresa;
+  document.getElementById('secretIntro').textContent = t.introSorpresa;
+  document.getElementById('secretText').innerHTML = t.textoSorpresa;
+  document.getElementById('finalTitle').textContent = t.tituloFinal;
+  document.getElementById('finalIntro').textContent = t.introFinal;
+  document.getElementById('finalButton').textContent = t.botonFinal;
+  document.getElementById('finalText').innerHTML = t.textoFinal;
+  document.getElementById('footerText').textContent = t.piePagina;
+}
+aplicarPersonalizacion();
+
 const starField = document.getElementById('stars');
 for (let i = 0; i < 65; i++) {
   const s = document.createElement('span');
@@ -129,7 +177,7 @@ for (let i = 0; i < 65; i++) {
 }
 function updateCounter() {
   // Fecha de inicio local: 7 de agosto de 2026.
-  const start = new Date(2026, 7, 7, 0, 0, 0);
+  const start = new Date(PERSONALIZACION.fechaInicio[0], PERSONALIZACION.fechaInicio[1], PERSONALIZACION.fechaInicio[2], 0, 0, 0);
   const now = new Date();
   let diff = now - start;
   if (diff < 0) {
@@ -149,7 +197,7 @@ function unlockSecret() {
   const word = document.getElementById('secretWord').value.trim().toLocaleLowerCase('es');
   const message = document.getElementById('secretMessage');
   const feedback = document.getElementById('wrongWord');
-  if (word === 'lolo') {
+  if (word === PERSONALIZACION.palabraSecreta.trim().toLocaleLowerCase('es')) {
     message.classList.add('show');
     feedback.textContent = '';
   } else {
