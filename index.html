@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Un rinconcito para ti 💜</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 25px 16px;
+  min-height: 100vh;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #fff0ff;
+  background: radial-gradient(circle at top, #7435a1, #321044 55%, #16071f);
+}
+main { max-width: 460px; margin: auto; }
+h1 { font-size: 32px; }
+.subtitulo { color: #e4c9f5; line-height: 1.6; }
+.estrellas { font-size: 25px; color: #f5d0fe; }
+.tarjeta {
+  padding: 20px;
+  margin: 18px 0;
+  border: 1px solid #ffffff35;
+  border-radius: 20px;
+  background: #ffffff10;
+  box-shadow: 0 8px 25px #0002;
+}
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border: 1px solid #ffffff30;
+  border-radius: 14px;
+  background: #9855bd;
+  color: white;
+  font-size: 16px;
+}
+.mensaje {
+  display: none;
+  padding-top: 16px;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+.mensaje.abierto { display: block; }
+.regalo { font-size: 65px; cursor: pointer; }
+input {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 12px;
+  font-size: 16px;
+  text-align: center;
+}
+footer { margin: 30px 0; color: #e4c9f5; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="estrellas">✧ ˚ 💜 ⋆｡°✩</div>
+  <h1>Hola, bonita 💜</h1>
+  <p class="subtitulo">
+    Preparé este pequeño rincón para ti.
+    Explora todo, hay sorpresas escondidas.
+  </p>
+
+  <section class="tarjeta">
+    <h2>💌 Una carta para ti</h2>
+    <button onclick="abrir('carta')">Abrir mi carta</button>
+    <div id="carta" class="mensaje">
+      Quería hacer algo diferente para ti.
+      Un pequeño lugar donde puedas encontrar
+      un poquito del cariño que te tengo.
+
+      Espero que esto te saque una sonrisa. 💜
+    </div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>🎁 Un pequeño regalo</h2>
+    <p>Toca la cajita para abrirla.</p>
+    <div class="regalo" onclick="abrir('regalo')">🎁</div>
+    <div id="regalo" class="mensaje">
+      ¡Sorpresa! 💗
+
+      Si pudiera, te daría un abrazo enorme.
+      Por ahora, te dejo este pequeño detalle
+      hecho especialmente para ti.
+    </div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>🔐 Un secreto</h2>
+    <p>¿Adivinas la palabra secreta?</p>
+    <input id="clave" placeholder="Escribe aquí"
+           autocomplete="off">
+    <button onclick="desbloquear()">Descubrir mensaje</button>
+    <div id="secreto" class="mensaje">
+      Hay personas que hacen más bonitos los días.
+      Tú eres una de esas personas para mí. ✨
+    </div>
+    <p id="error" class="mensaje">Prueba otra palabra 💜</p>
+  </section>
+
+  <section class="tarjeta">
+    <h2>🎶 Una canción para ti</h2>
+    <p>Un pequeño espacio para nuestra canción.</p>
+    <button onclick="abrir('musica')">Leer dedicatoria</button>
+    <div id="musica" class="mensaje">
+      Aquí puedes dedicarle una canción de Romeo Santos
+      y contarle por qué te hace pensar en ella. 🎵
+    </div>
+  </section>
+
+  <section class="tarjeta">
+    <h2>🌙 Antes de irte...</h2>
+    <button onclick="abrir('final')">Una última sorpresa</button>
+    <div id="final" class="mensaje">
+      Gracias por compartir conmigo tantos momentos.
+      Espero que hayas sonreído un poquito
+      al visitar este pequeño rincón. 💜
+    </div>
+  </section>
+
+  <footer>Hecho con cariño, para alguien especial 💜</footer>
+</main>
+
+<script>
+function abrir(id) {
+  document.getElementById(id).classList.toggle('abierto');
+}
+
+function desbloquear() {
+  const clave = document.getElementById('clave').value
+    .trim().toLowerCase();
+  const correcta = clave === 'luna';
+
+  document.getElementById('secreto').classList.toggle('abierto', correcta);
+  document.getElementById('error').classList.toggle('abierto', !correcta);
+}
+</script>
+</body>
+</html>
