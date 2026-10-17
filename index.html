@@ -1,146 +1,167 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Un rinconcito para ti 💜</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160b2b">
+<title>Para Mi negra 💜</title>
 <style>
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  padding: 25px 16px;
-  min-height: 100vh;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  color: #fff0ff;
-  background: radial-gradient(circle at top, #7435a1, #321044 55%, #16071f);
-}
-main { max-width: 460px; margin: auto; }
-h1 { font-size: 32px; }
-.subtitulo { color: #e4c9f5; line-height: 1.6; }
-.estrellas { font-size: 25px; color: #f5d0fe; }
-.tarjeta {
-  padding: 20px;
-  margin: 18px 0;
-  border: 1px solid #ffffff35;
-  border-radius: 20px;
-  background: #ffffff10;
-  box-shadow: 0 8px 25px #0002;
-}
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 10px;
-  border: 1px solid #ffffff30;
-  border-radius: 14px;
-  background: #9855bd;
-  color: white;
-  font-size: 16px;
-}
-.mensaje {
-  display: none;
-  padding-top: 16px;
-  line-height: 1.7;
-  white-space: pre-line;
-}
-.mensaje.abierto { display: block; }
-.regalo { font-size: 65px; cursor: pointer; }
-input {
-  width: 100%;
-  padding: 13px;
-  margin-top: 10px;
-  border: 0;
-  border-radius: 12px;
-  font-size: 16px;
-  text-align: center;
-}
-footer { margin: 30px 0; color: #e4c9f5; font-size: 13px; }
+:root{--bg:#10091d;--panel:#211337;--panel2:#2b1942;--purple:#b99aff;--pink:#f2c5ff;--text:#fff8ff;--muted:#d2c2e8;--gold:#f3d79a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,#382052 0%,#180d29 42%,#0d0717 100%);color:var(--text);font-family:Georgia,'Times New Roman',serif;min-height:100vh;overflow-x:hidden}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.star{position:absolute;color:#fff0ff;opacity:.65;animation:twinkle 3s infinite ease-in-out}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.8)}50%{opacity:.95;transform:scale(1.15)}}
+main{position:relative;z-index:1;width:min(760px,100%);margin:auto;padding:26px 16px 50px}
+.hero{text-align:center;padding:48px 14px 35px}
+.moon{font-size:42px;filter:drop-shadow(0 0 15px #d4a7ff)}
+.eyebrow{text-transform:uppercase;letter-spacing:4px;color:var(--gold);font:11px Arial,sans-serif;margin:18px 0}
+h1{font-size:clamp(38px,9vw,62px);line-height:1.05;margin:12px 0;color:#fff5ff;font-weight:normal;text-shadow:0 0 25px #b98cff55}
+.hero p{max-width:500px;margin:18px auto;color:var(--muted);font-size:17px;line-height:1.7}
+button{border:1px solid #c8a9ff88;border-radius:999px;padding:13px 20px;background:linear-gradient(135deg,#6b4294,#3c225d);color:white;font:14px Arial,sans-serif;cursor:pointer;transition:transform .2s,background .2s}
+button:hover{transform:translateY(-2px);background:linear-gradient(135deg,#8057ad,#4c2b70)}
+.card{background:linear-gradient(145deg,#28183aee,#1b1029f2);border:1px solid #c9a8ff30;border-radius:22px;padding:24px;margin:17px 0;box-shadow:0 14px 35px #0003;backdrop-filter:blur(8px)}
+.card h2{font-size:25px;font-weight:normal;margin:0 0 12px;color:var(--pink)}
+.card p{font-size:16px;line-height:1.85;color:#eee2fa;margin:10px 0}
+.center{text-align:center}
+.ornament{color:var(--gold);letter-spacing:7px;margin:12px 0}
+.counter{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:20px 0}
+.counter div{background:#120a20;border:1px solid #c8a9ff32;border-radius:15px;padding:15px 5px}
+.counter strong{display:block;font-size:clamp(25px,7vw,37px);font-weight:normal;color:#f3d6ff}
+.counter span{display:block;font:10px Arial,sans-serif;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:7px}
+.letter{white-space:normal}
+.hidden-content{display:none;margin-top:18px;padding:17px;border-radius:15px;background:#120a20;border:1px solid #c8a9ff32}
+.hidden-content.show{display:block;animation:appear .5s ease}
+@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+input{width:100%;max-width:300px;padding:12px 14px;margin:10px 5px 10px 0;border-radius:12px;border:1px solid #c8a9ff55;background:#120a20;color:white;font-size:16px}
+input::placeholder{color:#a995bd}
+.song-mark{font-size:36px;margin:4px 0 10px}
+footer{text-align:center;color:#bba9d2;font:12px Arial,sans-serif;padding:28px 8px 0;line-height:1.8}
+.small{font-size:13px!important;color:#bba9d2!important}
+@media(min-width:600px){.card{padding:30px}.hero{padding-top:65px}}
 </style>
 </head>
 <body>
+<div id="stars" aria-hidden="true"></div>
 <main>
-  <div class="estrellas">✧ ˚ 💜 ⋆｡°✩</div>
-  <h1>Hola, bonita 💜</h1>
-  <p class="subtitulo">
-    Preparé este pequeño rincón para ti.
-    Explora todo, hay sorpresas escondidas.
-  </p>
+  <header class="hero">
+    <div class="moon">☾ ✦</div>
+    <div class="eyebrow">un pequeño universo hecho para ti</div>
+    <h1>Para Mi negra</h1>
+    <p>Si pudiera regalarte un lugar donde siempre te sintieras querida, sería este rinconcito. Y como no puedo meter el universo en una cajita… hice una página para ti. 💜</p>
+    <button onclick="document.getElementById('carta').scrollIntoView({behavior:'smooth'})">Entra, es para ti ✧</button>
+  </header>
 
-  <section class="tarjeta">
-    <h2>💌 Una carta para ti</h2>
-    <button onclick="abrir('carta')">Abrir mi carta</button>
-    <div id="carta" class="mensaje">
-      Quería hacer algo diferente para ti.
-      Un pequeño lugar donde puedas encontrar
-      un poquito del cariño que te tengo.
+  <section class="card center">
+    <div class="ornament">✦ ───── ♡ ───── ✦</div>
+    <h2>Nuestro pequeño comienzo</h2>
+    <p>Desde aquel día, el <strong>7 de agosto de 2026</strong>, empezó a escribirse una parte bonita de mi historia.</p>
+    <div class="counter" aria-live="polite">
+      <div><strong id="days">—</strong><span>días</span></div>
+      <div><strong id="hours">—</strong><span>horas</span></div>
+      <div><strong id="minutes">—</strong><span>minutos</span></div>
+    </div>
+    <p class="small">Y todavía quedan muchos momentos bonitos por vivir. 💫</p>
+  </section>
 
-      Espero que esto te saque una sonrisa. 💜
+  <section class="card" id="carta">
+    <div class="ornament">♡</div>
+    <h2>Una carta para ti</h2>
+    <div class="letter">
+      <p>Mi negra,</p>
+      <p>No sé si una página pueda demostrar todo el cariño que te tengo, pero quería hacer algo que fuera tuyo, algo que pudieras abrir cualquier día y que te recordara lo importante que eres para mí.</p>
+      <p>Me gusta saber que existes, que entre tantas personas nuestros caminos se cruzaron y que puedo compartir contigo pedacitos de mis días. A veces quisiera encontrar las palabras perfectas para explicarte lo que me haces sentir, pero creo que ni las más bonitas alcanzarían.</p>
+      <p>Quiero que sonrías mucho, que nunca dudes de lo valiosa que eres y que, incluso en esos días en que todo parezca pesado, recuerdes que mereces cariño del bonito: del que escucha, respeta, acompaña y te deja ser tú misma.</p>
+      <p>No hice esto porque sea una fecha especial. Lo hice porque tú eres especial para mí, y me nació regalarte un detalle que llevara un poquito de lo que siento.</p>
+      <p>Gracias por ser tú, Mi negra. Ojalá esta página te saque esa sonrisita tuya que me encanta imaginar. Y si algún día vuelves a abrirla, quiero que encuentres aquí un recordatorio: eres alguien muy querida. 💜</p>
+      <p>Con muchísimo cariño,<br><strong>alguien que se alegra de tenerte en su vida. ♡</strong></p>
     </div>
   </section>
 
-  <section class="tarjeta">
-    <h2>🎁 Un pequeño regalo</h2>
-    <p>Toca la cajita para abrirla.</p>
-    <div class="regalo" onclick="abrir('regalo')">🎁</div>
-    <div id="regalo" class="mensaje">
-      ¡Sorpresa! 💗
+  <section class="card center">
+    <div class="song-mark">🎶</div>
+    <h2>Mi Santa</h2>
+    <p>Hay canciones que parecen guardar sentimientos que uno no sabe explicar. Elegí <em>“Mi Santa”</em>, de Romeo Santos, porque quería que esta parte de mi regalo tuviera un sonido especial y que, cuando la escuches, te acuerdes un poquito de mí.</p>
+    <p class="small">Puedes poner la canción desde tu plataforma de música favorita. Esta página no reproduce audio automáticamente.</p>
+  </section>
 
-      Si pudiera, te daría un abrazo enorme.
-      Por ahora, te dejo este pequeño detalle
-      hecho especialmente para ti.
+  <section class="card center">
+    <div class="ornament">✧ ✧ ✧</div>
+    <h2>Una pequeña sorpresa</h2>
+    <p>Hay una puertita escondida en este rincón. Si conoces la palabra, puedes abrirla. 🤫</p>
+    <input id="secretWord" type="password" placeholder="Escribe la palabra secreta" autocomplete="off" aria-label="Palabra secreta">
+    <br><button onclick="unlockSecret()">Abrir mi sorpresa 💌</button>
+    <div id="secretMessage" class="hidden-content">
+      <h2>Un secreto para ti ♡</h2>
+      <p>Mi negra, si llegaste hasta aquí, quiero que te quedes con esto: no tienes que hacer nada extraordinario para merecer cariño. Me alegra conocerte tal como eres, con tus ocurrencias, tus días buenos y los no tan buenos.</p>
+      <p>Y si pudiera pedirle un deseo a esta noche, sería que la vida te regale motivos para sonreír y personas que te cuiden con la misma ternura que tú mereces. Ojalá este pequeño detalle sea uno de esos motivos. 💜</p>
+    </div>
+    <p id="wrongWord" class="small" role="status"></p>
+  </section>
+
+  <section class="card center">
+    <h2>Antes de que te vayas…</h2>
+    <p>Respira un poquito, sonríe si te nace y recuerda que alguien se tomó el tiempo de hacer todo esto pensando en ti.</p>
+    <button onclick="showFinal()">Tengo una última cosita ✨</button>
+    <div id="finalMessage" class="hidden-content">
+      <p>Si pudiera ponerle un nombre a este regalo, sería “un pedacito de mi cariño para ti”. No es perfecto, pero está hecho con intención bonita. Espero que hoy, mañana o cualquier día que vuelvas, te haga sentir especial.</p>
+      <p><strong>Te mando un abrazo enorme, Mi negra. 💜🌙</strong></p>
     </div>
   </section>
 
-  <section class="tarjeta">
-    <h2>🔐 Un secreto</h2>
-    <p>¿Adivinas la palabra secreta?</p>
-    <input id="clave" placeholder="Escribe aquí"
-           autocomplete="off">
-    <button onclick="desbloquear()">Descubrir mensaje</button>
-    <div id="secreto" class="mensaje">
-      Hay personas que hacen más bonitos los días.
-      Tú eres una de esas personas para mí. ✨
-    </div>
-    <p id="error" class="mensaje">Prueba otra palabra 💜</p>
-  </section>
-
-  <section class="tarjeta">
-    <h2>🎶 Una canción para ti</h2>
-    <p>Un pequeño espacio para nuestra canción.</p>
-    <button onclick="abrir('musica')">Leer dedicatoria</button>
-    <div id="musica" class="mensaje">
-      Aquí puedes dedicarle una canción de Romeo Santos
-      y contarle por qué te hace pensar en ella. 🎵
-    </div>
-  </section>
-
-  <section class="tarjeta">
-    <h2>🌙 Antes de irte...</h2>
-    <button onclick="abrir('final')">Una última sorpresa</button>
-    <div id="final" class="mensaje">
-      Gracias por compartir conmigo tantos momentos.
-      Espero que hayas sonreído un poquito
-      al visitar este pequeño rincón. 💜
-    </div>
-  </section>
-
-  <footer>Hecho con cariño, para alguien especial 💜</footer>
+  <footer>
+    Hecho con cariño, especialmente para Mi negra<br>
+    <span>☾ ✦ ♡ ✦ ☽</span>
+  </footer>
 </main>
-
 <script>
-function abrir(id) {
-  document.getElementById(id).classList.toggle('abierto');
+const starField = document.getElementById('stars');
+for (let i = 0; i < 65; i++) {
+  const s = document.createElement('span');
+  s.className = 'star';
+  s.textContent = i % 5 === 0 ? '✦' : '·';
+  s.style.left = Math.random() * 100 + '%';
+  s.style.top = Math.random() * 100 + '%';
+  s.style.fontSize = (8 + Math.random() * 13) + 'px';
+  s.style.animationDelay = (Math.random() * 4) + 's';
+  starField.appendChild(s);
 }
-
-function desbloquear() {
-  const clave = document.getElementById('clave').value
-    .trim().toLowerCase();
-  const correcta = clave === 'luna';
-
-  document.getElementById('secreto').classList.toggle('abierto', correcta);
-  document.getElementById('error').classList.toggle('abierto', !correcta);
+function updateCounter() {
+  // Fecha de inicio local: 7 de agosto de 2026.
+  const start = new Date(2026, 7, 7, 0, 0, 0);
+  const now = new Date();
+  let diff = now - start;
+  if (diff < 0) {
+    document.getElementById('days').textContent = '0';
+    document.getElementById('hours').textContent = '0';
+    document.getElementById('minutes').textContent = '0';
+    return;
+  }
+  const totalMinutes = Math.floor(diff / 60000);
+  document.getElementById('days').textContent = Math.floor(totalMinutes / 1440);
+  document.getElementById('hours').textContent = Math.floor((totalMinutes % 1440) / 60);
+  document.getElementById('minutes').textContent = totalMinutes % 60;
 }
+updateCounter();
+setInterval(updateCounter, 60000);
+function unlockSecret() {
+  const word = document.getElementById('secretWord').value.trim().toLocaleLowerCase('es');
+  const message = document.getElementById('secretMessage');
+  const feedback = document.getElementById('wrongWord');
+  if (word === 'lolo') {
+    message.classList.add('show');
+    feedback.textContent = '';
+  } else {
+    feedback.textContent = 'Mmm… esa no es la palabra. Inténtalo otra vez, tú puedes. ♡';
+  }
+}
+function showFinal() {
+  document.getElementById('finalMessage').classList.toggle('show');
+}
+document.getElementById('secretWord').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') unlockSecret();
+});
 </script>
 </body>
 </html>
